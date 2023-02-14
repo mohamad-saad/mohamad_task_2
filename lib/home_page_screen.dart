@@ -10,70 +10,75 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    // List<String> images = [
-    //   "https://static.grid.news/Anima-2022/Anima_PodcastPromo/img/750-grid-podcast-bad-takes-1-4@2x.png",
-    //   "https://static.grid.news/Anima-2022/Anima_PodcastPromo/img/750-grid-podcast-bad-takes-1-4@2x.png",
-    //   "https://static.grid.news/Anima-2022/Anima_PodcastPromo/img/750-grid-podcast-bad-takes-1-4@2x.png",
-    //   "https://static.grid.news/Anima-2022/Anima_PodcastPromo/img/750-grid-podcast-bad-takes-1-4@2x.png",
-    //
-    // ];
+    List<String> images = [
+      './assets/product 1.png',
+      './assets/product 2.png',
+      './assets/product 3.png',
+      './assets/product 4.png',
+      './assets/product 5.png',
+      './assets/product 6.png',
+      './assets/product 1.png',
+      './assets/product 2.png',
+    ];
 
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 50),
-          child: Column(
-            children: [
-              const Text(
-                "Find Products",
-                style: TextStyle(
-                  fontSize: 20,
-                  // fontFamily: "Poppins",
-                  fontWeight: FontWeight.w900,
-                  letterSpacing: 1,
-                ),
+      body: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(top: 40),
+            child: Text(
+              'Find Products',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w900,
+                fontFamily: 'Poppins',
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: TextField(
-                  cursorColor: Colors.grey,
-                  decoration: InputDecoration(
-                      fillColor: Colors.black12,
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide.none,
-                      ),
-                      hintText: 'Search Store',
-                      hintStyle:
-                          const TextStyle(color: Colors.black38, fontSize: 18),
-                      prefixIcon: Container(
-                        padding: const EdgeInsets.all(15),
-                        height: 20,
-                        child: Image.asset('./assets/Search.png'),
-                      )),
-                ),
-              ),
-              // Padding(
-              //   padding: const EdgeInsets.only(top: 30),
-              //   child: GridView.builder(
-              //     itemCount: images.length,
-              //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              //       crossAxisCount: 2,
-              //       crossAxisSpacing: 8.0,
-              //       mainAxisSpacing: 8.0,
-              //     ),
-              //     itemBuilder: (BuildContext context, int index) {
-              //       return Image.network(images[index]);
-              //     },
-              //   ),
-              // )
-            ],
+            ),
           ),
-        ),
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              cursorColor: Colors.grey,
+              decoration: InputDecoration(
+                  fillColor: Colors.black12,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide.none,
+                  ),
+                  hintText: 'Search Store',
+                  hintStyle:
+                      const TextStyle(color: Colors.black38, fontSize: 18),
+                  prefixIcon: Container(
+                    padding: const EdgeInsets.all(15),
+                    height: 20,
+                    child: Image.asset('./assets/Search.png'),
+                  )),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: GridView.builder(
+                itemCount: images.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 9.0,
+                  mainAxisSpacing: 9.0,
+                ),
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.black12
+                    ),
+                    child: Image.asset(images[index]),
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
